@@ -14,7 +14,7 @@ class CounterBloc {
   Stream<int> get value => _valueController.stream;
 
   void incrementCounter() async {
-    await compute(fib, 34);
+    await compute(fib, 38);
     _valueController.sink.add(++_counter);
   }
 
