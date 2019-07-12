@@ -2,6 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+import 'count_widget.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -56,6 +58,18 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
         appBar: AppBar(
           title: Text(widget.title),
+          actions: <Widget>[
+            IconButton(
+              icon: const Icon(Icons.forward),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (context) {
+                    return CountPage();
+                  },
+                ));
+              },
+            ),
+          ],
         ),
         body: ListView.builder(
             controller: _scrollController,
@@ -69,8 +83,4 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   bool shouldRefresh() => Random().nextInt(500) == 1;
-
-  int fib(int n) {
-    return n < 2 ? n : fib(n - 1) + fib(n - 2);
-  }
 }
